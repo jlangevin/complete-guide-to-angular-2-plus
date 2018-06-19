@@ -1,4 +1,41 @@
-<div class="form-group">
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>I'm in the AppComponent</h3>
+			
+			<hr>
+			
+			<app-servers></app-servers>
+			<!-- <div app-servers></div> -->
+			<!-- <div class="app-servers"></div> -->
+
+			<hr>
+						
+			<success-alert></success-alert>
+			<WarningAlert></WarningAlert>
+
+			<hr>
+
+				<label>Username:</label>
+				<input
+					type="text"
+					class="form-control"
+					[(ngModel)]="userName"
+				>
+				<p>{{ userName }}</p>
+				<button 
+					class="btn btn-primary"
+					[disabled]="!userName.length > 0"
+					(click)="onClearUserName()"
+				>
+					Clear
+				</button>
+
+		</div>
+	</div>
+</div>
+
+<!-- <div class="form-group">
 	<label for="exampleInputEmail1">{{ name }}</label>
 	<input 
 		type="email" 
@@ -6,4 +43,4 @@
 		id="exampleInputEmail1" 
 		[(ngModel)]="name"
 	>
-</div>
+</div> -->
