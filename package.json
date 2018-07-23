@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e", 
+    "e2e": "ng e2e",
     "build.demo": "ng build --prod --output-path docs --base-href \"https://jlangevin.github.io/complete-guide-to-angular-6/\""
   },
   "private": true,
@@ -23,6 +23,7 @@
     "@angular/router": "^6.0.3",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
+    "npm": "^6.1.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
