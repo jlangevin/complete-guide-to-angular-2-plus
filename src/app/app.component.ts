@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'app-root',
-	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	page = 'recipes';
-
-	onChangePageEmitted(page: string) {
-		console.log('onChangePageEmitted:', page);
-		this.page = page;
-	}
+  numbers = [1, 2, 3, 4, 5];
+  onlyOdd = false;
+  value = 10;
 }

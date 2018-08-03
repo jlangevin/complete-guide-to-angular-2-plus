@@ -1,9 +1,60 @@
-<app-header (pageChanged)="onChangePageEmitted($event)"></app-header>
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<app-recipes *ngIf="page === 'recipes'"></app-recipes>
-			<app-shopping-list *ngIf="page !== 'recipes'"></app-shopping-list>
+		<div class="col-xs-12">
+			<button
+				class="btn btn-primary"
+				(click)="onlyOdd = !onlyOdd"
+			>
+				Only show odd numbers
+			</button>
+			<br><br>
+	
+			<ul class="list-group">
+				<li class="list-group-item">
+				</li>
+			</ul>
+		
+			<div *ngIf="!onlyOdd">
+				<p>Only even using *ngIf</p>
+			</div>
+
+			<!-- * above effectively tells angular to transform that block to 
+			a conditionally-displayed ng-template block similar to below. -->
+			<ng-template [ngIf]="onlyOdd">
+				<p>Only odd using ng-template</p>
+			</ng-template>
+
+			<div *appUnless="!onlyOdd">
+				<p>Only odd using *appUnless structural directive</p>
+			</div>
+
 		</div>
 	</div>
+	
+	<p appBasicHighlight>Style me with a basic directive!</p>
+	
+	<p 
+		[appBetterHighlight]="'red'"
+		defaultColor=yellow 
+	>
+		Style me with a BETTER directive!
+	</p>
+
+	<!-- 
+	This is the standard way not suing an alias
+	<p 
+		appBetterHighlight 
+		[defaultColor]="'yellow'" 
+		[highlightColor]="'red'"
+	>
+		Style me with a BETTER directive!
+	</p> -->
+
+	<div [ngSwitch]="value">
+		<p *ngSwitchCase="5">value is 5</p>
+		<p *ngSwitchCase="10">value is 10</p>
+		<p *ngSwitchCase="100">value is 100</p>
+		<p *ngSwitchDefault>value is default</p>
+	</div>
+
 </div>
