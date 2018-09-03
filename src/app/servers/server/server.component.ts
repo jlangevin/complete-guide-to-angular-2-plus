@@ -28,7 +28,7 @@ export class ServerComponent implements OnInit {
   }
 
 	onEdit() {
-		this.router.navigate(['edit'], {relativeTo: this.route});
+		this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
 		// Since we're already on the /servers/:id/ path, we can simply use a relative
 		// path above instead of bruilding the complete url from scratch below
 		// this.router.navigate(['/servers', this.server.id, 'edit']);
