@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-server',
@@ -13,7 +13,8 @@ export class ServerComponent implements OnInit {
 
   constructor(
 		private serversService: ServersService,
-		private route: ActivatedRoute
+		private route: ActivatedRoute,
+		private router: Router
 	) { }
 
   ngOnInit() {
@@ -25,5 +26,12 @@ export class ServerComponent implements OnInit {
 			}
 		)
   }
+
+	onEdit() {
+		this.router.navigate(['edit'], {relativeTo: this.route});
+		// Since we're already on the /servers/:id/ path, we can simply use a relative
+		// path above instead of bruilding the complete url from scratch below
+		// this.router.navigate(['/servers', this.server.id, 'edit']);
+	}
 
 }
